@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBinLine } from "react-icons/ri";
-import { useAppContext } from "../context/AppContext";
+// import { useAppContext } from "../context/AppContext";
 
 type ChatProps = {
   id: number;
@@ -16,7 +16,7 @@ const Chat = ({ id, title, updatedAt, onDelete, onEdit }: ChatProps) => {
   const [isEdit, setIsEdit] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const { formatTime } = useAppContext();
+  // const { formatTime } = useAppContext();
 
   useEffect(() => {
     if (isEdit) {
@@ -60,7 +60,7 @@ const Chat = ({ id, title, updatedAt, onDelete, onEdit }: ChatProps) => {
           )}
 
           <span className="px-0 text-sm text-gray-500">
-            {formatTime(updatedAt)}
+            {/* {formatTime(updatedAt)} */}
           </span>
         </div>
 

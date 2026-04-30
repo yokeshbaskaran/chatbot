@@ -1,25 +1,39 @@
-import { IoCloseOutline } from "react-icons/io5";
 import { IoMdAdd } from "react-icons/io";
+import { RiCloseLargeLine } from "react-icons/ri";
 // import ChatLists from "./ChatLists";
 import UserProfile from "../../components/UserProfile";
+import { useAppContext } from "../../context/AppContext";
 
 const Sidebar = () => {
+  const { setOpenSideBar } = useAppContext();
+
   return (
     <>
-      <section className="fixed top-0 left-0 h-screen w-64 bg-[#F8F9FA] border-2 flex flex-col border-[#EEF0F2]">
+      <section className="fixed top-0 left-0 h-screen w-64 bg-bg border-2 flex flex-col border-border">
         <div className="w-full px-2 py-3">
           {/* Logo */}
-          <div className="flex justify-between items-center">
-            <h2 className="pl-1 text-2xl cursor-pointer">
-              <span className="text-[#00A832]">Daiv</span>AI
-            </h2>
+          <div className="flex items-end gap-2">
             <span className="cursor-pointer">
-              <IoCloseOutline size={20} />
+              <img src="./logo.png" alt="app logo" width={28} height={28} />
             </span>
+
+            <div className="w-full text-text flex justify-between items-center">
+              <h2 className="text-base font-semibold">
+                Chat<span className="text-blue-400">AI</span>{" "}
+                <span className="font-normal hidden md:inline">
+                  - Your Chat Buddy
+                </span>
+              </h2>
+
+              {/* Sidebar close before "md" */}
+              <div className="md:hidden" onClick={() => setOpenSideBar(false)}>
+                <RiCloseLargeLine size={18} />
+              </div>
+            </div>
           </div>
 
           {/* New Chat */}
-          <div className="my-4 px-1 py-1 border bg-[#00A832] text-white hover:opacity-90 rounded flex items-center cursor-pointer">
+          <div className="my-4 px-1 py-1 bg-primary text-text hover:opacity-90 rounded flex items-center cursor-pointer">
             <span className="px-1 py-2">
               <IoMdAdd size={20} />
             </span>
@@ -27,14 +41,13 @@ const Sidebar = () => {
           </div>
 
           {/* Divider */}
-          <div className="border border-b border-[#EEF0F2]"></div>
+          <div className="border border-b border-border"></div>
 
           {/* Chat Lists */}
           {/* <ChatLists /> */}
         </div>
 
         {/* Divider */}
-        <div className="border border-b border-[#EEF0F2]"></div>
 
         {/* USER profile  */}
         <UserProfile />
