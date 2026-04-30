@@ -9,18 +9,18 @@ const Sidebar = () => {
 
   return (
     <>
-      <section className="fixed top-0 left-0 h-screen w-64 bg-bg border-2 flex flex-col border-border">
+      <section className="fixed top-0 left-0 h-screen w-68 bg-bg border flex flex-col border-border">
         <div className="w-full px-2 py-3">
           {/* Logo */}
-          <div className="flex items-end gap-2">
+          <div className="flex items-center gap-2">
             <span className="cursor-pointer">
               <img src="./logo.png" alt="app logo" width={28} height={28} />
             </span>
 
             <div className="w-full text-text flex justify-between items-center">
-              <h2 className="text-base font-semibold">
+              <h2 className="text-lg font-semibold">
                 Chat<span className="text-blue-400">AI</span>{" "}
-                <span className="font-normal hidden md:inline">
+                <span className="font-normal text-base hidden md:inline">
                   - Your Chat Buddy
                 </span>
               </h2>

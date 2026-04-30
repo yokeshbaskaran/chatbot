@@ -8,7 +8,7 @@ const MainLayout = () => {
   return (
     <div className="flex h-screen">
       <div
-        className={`z-50 ${openSideBar ? "md:w-64 md:flex md:flex-col" : "hidden"}`}
+        className={`z-50 ${openSideBar ? "md:w-68 md:flex md:flex-col" : "hidden"}`}
       >
         <Sidebar />
       </div>
