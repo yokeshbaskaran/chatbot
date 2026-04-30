@@ -50,8 +50,6 @@ const Sidebar = () => {
           {/* <ChatLists /> */}
         </div>
 
-        {/* Divider */}
-
         {/* USER profile  */}
         <UserProfile />
       </section>

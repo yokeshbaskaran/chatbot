@@ -1,8 +1,12 @@
 import TopBar from "./TopBar";
 import ChatArea from "./ChatArea";
 import ChatInput from "./ChatInput";
+import { useAppContext } from "../../context/AppContext";
+import ChatMessage from "./ChatMessage";
 
 const Home = () => {
+  const { chats } = useAppContext();
+
   return (
     <>
       <div className="h-screen bg-bg flex flex-col overflow-hidden">
@@ -12,8 +16,8 @@ const Home = () => {
         </div>
 
         {/* Chat Area */}
-        <div className="flex-1 overflow-y-auto shadow-primary shadow-xl">
-          <ChatArea />
+        <div className="flex-1 max-md:w-[95%] max-md:mx-auto overflow-y-auto">
+          {chats?.length > 0 ? <ChatMessage /> : <ChatArea />}
         </div>
 
         {/* Bottom Input */}
