@@ -53,14 +53,24 @@
   --color-danger: #f87171;
 }
 
+/* Loading speed  */
+@keyframes loading {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
 .yoki {
   @apply border border-red-500;
 }
 
 .yokii {
-  @apply border text-green-500;
+  @apply border text-violet-500;
 }
 
 .yokiii {
-  @apply border border-violet-500;
+  @apply border border-green-500;
 }
