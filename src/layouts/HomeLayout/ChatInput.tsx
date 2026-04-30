@@ -1,67 +1,49 @@
 import { MdOutlineAttachFile } from "react-icons/md";
 import { LuSend } from "react-icons/lu";
-import { useAppContext } from "../../context/AppContext";
+import { useState } from "react";
 
 const ChatInput = () => {
-  const {
-    userText,
-    setUserText,
-    sendMessage,
-    createNewChat,
-    loading,
-    activeChatID,
-    newChatRef,
-  } = useAppContext();
+  const [userChatInput, setUserChatInput] = useState<string>("");
 
-  const handleSendmsg = () => {
-    if (!userText.trim()) return alert("Ask anything to chat!");
-
-    //  AUTO CREATE CHAT (IMPORTANT)
-    if (!activeChatID) {
-      createNewChat();
-      setTimeout(() => sendMessage(userText), 100);
-    } else {
-      sendMessage(userText);
-      setUserText("");
+  const handleSubmit = () => {
+    if (!userChatInput.trim()) {
+      return;
     }
+    console.log("input", userChatInput);
+    setUserChatInput("");
   };
 
   return (
     <div className="px-5 flex flex-col items-center">
       <div
-        className={`w-[85%] px-2 py-2 border  ${userText ? "border-[#29AF33] shadow-md" : "border-[#9D9E9E]"} rounded-lg`}
+        className={`md:w-[60%] mx-auto px-2 py-2 border bg-bg-hover ${userChatInput ? "border-primary shadow-2xl" : "border-[#9D9E9E]"} rounded-4xl`}
       >
-        <div className="flex items-center">
+        <div className="px-2 flex items-center">
           <span>
-            <MdOutlineAttachFile size={20} />
+            <MdOutlineAttachFile size={20} color="white" />
           </span>
 
           <div className="w-full px-2 text-[#8C8D8E]">
             <input
+              value={userChatInput}
+              onChange={(e) => setUserChatInput(e.target.value)}
               type="text"
-              ref={newChatRef}
-              value={userText}
-              onChange={(e) => setUserText(e.target.value)}
               placeholder="Chat with me!"
-              className="w-full px-2 outline-0 text-black"
+              className="w-full px-2 outline-0 text-text outline-none"
             />
           </div>
 
           <button
-            onClick={handleSendmsg}
-            disabled={loading}
-            className={`ml-auto p-2 ${userText ? "bg-[#29AF33]" : "bg-[#E5E7EB]"} rounded`}
+            onClick={handleSubmit}
+            className={`ml-auto p-2 ${userChatInput ? "text-white bg-primary" : "text-text-muted bg-bg opacity-50"} rounded cursor-pointer`}
           >
-            <LuSend color={userText ? "white" : "#8C8D8E"} size={18} />
+            <LuSend size={18} />
           </button>
         </div>
-        <p className="pt-2 text-[#8C8D8E]">
-          Press Enter to send, Shift+Enter for new line
-        </p>
       </div>
 
       {/* Disclaimer  */}
-      <span className="my-2 text-sm">
+      <span className="my-2 text-text-muted text-sm">
         AI can make mistakes. Consider checking important information.
       </span>
     </div>

@@ -9,14 +9,15 @@ const ChatArea = () => {
   return (
     <div className="my-10 flex flex-col items-center">
       <div className="px-2">
-        <img src="/icon.png" alt="logo" width={120} height={120} />
+        <img src="/logo.png" alt="logo" width={120} height={120} />
       </div>
 
       <div className="py-2">
-        <h2 className="pl-1 text-2xl font-bold text-center cursor-pointer">
-          <span className="text-[#00A832]">Daiv</span>AI
+        <h2 className="pl-1 text-text text-2xl font-bold text-center cursor-pointer">
+          Chat
+          <span className="text-primary">AI</span>
         </h2>
-        <p className="text-[#747474] py-1">
+        <p className="text-text-muted py-1">
           Ask me anything. I'm here to help.
         </p>
       </div>
@@ -25,10 +26,10 @@ const ChatArea = () => {
         {instructions.map((help, idx) => (
           <div
             key={idx}
-            className="p-4 border border-gray-200 rounded-xl hover:border-green-500 transition-colors bg-[#F1F3F5] shadow-sm cursor-pointer"
+            className="px-8 py-4 border border-border rounded-xl hover:border-primary transition-colors bg-bg-hover shadow-sm cursor-pointer"
           >
-            <h2 className="text-center">{help.title}</h2>
-            <p className="text-[#9D9E9E]">{help.usage}</p>
+            <h2 className="text-text text-base text-center">{help.title}</h2>
+            <p className="text-text-muted text-sm">{help.usage}</p>
           </div>
         ))}
       </section>
