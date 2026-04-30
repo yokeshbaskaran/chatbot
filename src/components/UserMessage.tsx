@@ -1,6 +1,6 @@
 import { FaRegUser } from "react-icons/fa6";
 
-const UserMessage = () => {
+const UserMessage = ({ text }: { text: string }) => {
   return (
     <>
       <div className="px-3 py-3 flex items-start gap-2 bg-bg">
@@ -13,10 +13,7 @@ const UserMessage = () => {
             <h2 className="text-primary-hover font-bold text-base">You</h2>
             <span className="text-text-muted">11:00 PM</span>
           </div>
-          <p className="text-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing sapiente iure
-            officiis nisi, ut voluptas harum ullam fuga dolorem amet eius.
-          </p>
+          <p className="text-text">{text}</p>
         </div>
       </div>
     </>

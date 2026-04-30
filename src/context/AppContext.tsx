@@ -256,7 +256,7 @@
 //   );
 // };
 
-import { createContext, useContext, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
 type AppContextType = {
   userInput: string;
@@ -266,10 +266,28 @@ type AppContextType = {
   newChatRef: React.RefObject<HTMLInputElement | null>;
   handleNewChatRef: () => void;
   handleUserInput: () => void;
+  chats: NewChatType[];
+  activeChatId: number | null;
+  // loading: boolean;
 };
 
 type AppContextProviderType = {
   children: React.ReactNode;
+};
+
+type MessageType = {
+  id: number;
+  text: string;
+  sender: "user" | "ai";
+  createdAt: number;
+};
+
+type NewChatType = {
+  id: number;
+  title: string;
+  messages: MessageType[];
+  createdAt: number;
+  updatedAt: number;
 };
 
 const AppContext = createContext({} as AppContextType);
@@ -280,21 +298,120 @@ export function useAppContext() {
 
 export const AppContextProvider = ({ children }: AppContextProviderType) => {
   const [userInput, setUserInput] = useState<string>(""); //user input text in chatbox
+  // const [aiResponse, setAiResponse] = useState<string>(""); //text from ai response
   const [openSideBar, setOpenSideBar] = useState<boolean>(false); //toggle Sidebar
+  const [loading, setLoading] = useState(false); //spinner
+
+  const [chats, setChats] = useState<NewChatType[]>([]);
+  const [activeChatId, setActiveChatId] = useState<number | null>(null);
+
+  useEffect(() => {
+    localStorage.setItem("chats", JSON.stringify(chats));
+  }, [chats]);
+
+  // console.log("chats:", chats);
+  // console.log("activeChatId:", activeChatId);
 
   //new chat -useRef()
   const newChatRef = useRef<HTMLInputElement | null>(null);
   const handleNewChatRef = () => {
     newChatRef.current?.focus();
+    setOpenSideBar(false);
+  };
+
+  // create new chat
+  const createNewChat = (userMessage: string) => {
+    const chatnewID = Date.now();
+    //creating chat
+    const newChat: NewChatType = {
+      id: chatnewID,
+      title: userMessage.slice(0, 15),
+      createdAt: Date.now(),
+      updatedAt: Date.now(),
+      messages: [
+        {
+          id: Date.now(),
+          text: userMessage,
+          sender: "user",
+          createdAt: Date.now(),
+        },
+      ],
+    };
+
+    setChats((prev) => [newChat, ...prev]);
+    setActiveChatId(newChat.id);
+
+    return chatnewID;
+  };
+
+  // adding ai response
+  const addAIMsg = (id: number, aiText: string) => {
+    setChats((prev) =>
+      prev.map((chat) => {
+        if (chat.id !== id) return chat;
+
+        return {
+          ...chat,
+          updatedAt: Date.now(),
+          messages: [
+            ...chat.messages,
+            {
+              id: Date.now(),
+              text: aiText,
+              sender: "ai",
+              createdAt: Date.now(),
+            },
+          ],
+        };
+      }),
+    );
+  };
+
+  // adding user message
+  const addUserMsg = (id: number, userText: string) => {
+    setChats((prev) =>
+      prev.map((chat) => {
+        if (chat.id !== id) return chat;
+
+        return {
+          ...chat,
+          updatedAt: Date.now(),
+          messages: [
+            ...chat.messages,
+            {
+              id: Date.now(),
+              text: userText,
+              sender: "user",
+              createdAt: Date.now(),
+            },
+          ],
+        };
+      }),
+    );
   };
 
   //user input in chatbox
   const handleUserInput = () => {
-    if (!userInput.trim()) {
-      return;
+    if (!userInput.trim()) return;
+
+    if (!activeChatId) {
+      setLoading(true);
+      const chatID = createNewChat(userInput);
+
+      setTimeout(() => {
+        addAIMsg(chatID, "Hello, I am AI!");
+        setLoading(false);
+      }, 1000);
+    } else {
+      addUserMsg(activeChatId, userInput);
+      setLoading(true);
+
+      setTimeout(() => {
+        addAIMsg(activeChatId, "Another respone from am AI!");
+        setLoading(false);
+      }, 1000);
     }
 
-    console.log("input", userInput);
     setUserInput("");
   };
 
@@ -308,8 +425,12 @@ export const AppContextProvider = ({ children }: AppContextProviderType) => {
     //ref in chatbox and sidebar
     newChatRef,
     handleNewChatRef,
-    //userinput
+    //userinput //convo
     handleUserInput,
+    // chats
+    chats,
+    activeChatId,
+    // loading,
   };
 
   return (

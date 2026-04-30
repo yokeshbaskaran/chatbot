@@ -37,7 +37,7 @@ const ChatInput = () => {
       </div>
 
       {/* Disclaimer  */}
-      <span className="mt-4 my-2 text-text-muted text-sm">
+      <span className="mt-4 my-2 text-text-muted text-center text-sm">
         AI can make mistakes. Consider checking important information.
       </span>
     </div>

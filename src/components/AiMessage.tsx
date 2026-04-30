@@ -1,4 +1,8 @@
-const AiMessage = () => {
+import { useAppContext } from "../context/AppContext";
+
+const AiMessage = ({ text }: { text: string }) => {
+  // const { loading } = useAppContext();
+
   return (
     <>
       <div className="px-3 py-3 flex items-start gap-2 bg-bg-hover">
@@ -11,10 +15,7 @@ const AiMessage = () => {
             <h2 className="text-text font-bold text-base">AI Model</h2>
             <span className="text-text-muted">11:00 PM</span>
           </div>
-          <p className="text-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing sapiente iure
-            officiis nisi, ut voluptas harum ullam fuga dolorem amet eius.
-          </p>
+          <p className="text-text">{text}</p>
         </div>
       </div>
     </>
