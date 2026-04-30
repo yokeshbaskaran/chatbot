@@ -5,14 +5,14 @@ import UserProfile from "../../components/UserProfile";
 import { useAppContext } from "../../context/AppContext";
 
 const Sidebar = () => {
-  const { setOpenSideBar } = useAppContext();
+  const { setOpenSideBar, handleNewChatRef } = useAppContext();
 
   return (
     <>
       <section className="fixed top-0 left-0 h-screen w-68 bg-bg border flex flex-col border-border">
         <div className="w-full px-2 py-3">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-start gap-2">
             <span className="cursor-pointer">
               <img src="./logo.png" alt="app logo" width={28} height={28} />
             </span>
@@ -33,7 +33,10 @@ const Sidebar = () => {
           </div>
 
           {/* New Chat */}
-          <div className="my-4 px-1 py-1 bg-primary text-text hover:opacity-90 rounded flex items-center cursor-pointer">
+          <div
+            onClick={handleNewChatRef}
+            className="my-4 px-1 py-1 bg-primary text-text hover:opacity-90 rounded flex items-center cursor-pointer"
+          >
             <span className="px-1 py-2">
               <IoMdAdd size={20} />
             </span>

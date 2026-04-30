@@ -256,12 +256,16 @@
 //   );
 // };
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useRef, useState } from "react";
 
 type AppContextType = {
   userInput: string;
+  setUserInput: React.Dispatch<React.SetStateAction<string>>;
   openSideBar: boolean;
   setOpenSideBar: React.Dispatch<React.SetStateAction<boolean>>;
+  newChatRef: React.RefObject<HTMLInputElement | null>;
+  handleNewChatRef: () => void;
+  handleUserInput: () => void;
 };
 
 type AppContextProviderType = {
@@ -278,6 +282,22 @@ export const AppContextProvider = ({ children }: AppContextProviderType) => {
   const [userInput, setUserInput] = useState<string>(""); //user input text in chatbox
   const [openSideBar, setOpenSideBar] = useState<boolean>(false); //toggle Sidebar
 
+  //new chat -useRef()
+  const newChatRef = useRef<HTMLInputElement | null>(null);
+  const handleNewChatRef = () => {
+    newChatRef.current?.focus();
+  };
+
+  //user input in chatbox
+  const handleUserInput = () => {
+    if (!userInput.trim()) {
+      return;
+    }
+
+    console.log("input", userInput);
+    setUserInput("");
+  };
+
   const contextValues = {
     //sidebar
     openSideBar,
@@ -285,6 +305,11 @@ export const AppContextProvider = ({ children }: AppContextProviderType) => {
     //home - chat
     userInput,
     setUserInput,
+    //ref in chatbox and sidebar
+    newChatRef,
+    handleNewChatRef,
+    //userinput
+    handleUserInput,
   };
 
   return (
