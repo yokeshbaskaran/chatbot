@@ -12,13 +12,7 @@ const Home = () => {
         </div>
 
         {/* Chat Area */}
-        <div className="flex-1 overflow-y-auto">
-          <div className="yoki">
-            <span className="relative flex size-3">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
-              <span className="relative inline-flex size-3 rounded-full bg-sky-500"></span>
-            </span>
-          </div>
+        <div className="flex-1 overflow-y-auto shadow-primary shadow-xl">
           <ChatArea />
         </div>
 
@@ -27,14 +21,6 @@ const Home = () => {
           <ChatInput />
         </div>
       </div>
-      {/* <div className="h-screen yokiii bg-bg">
-      <div className="fixed w-full">
-        <TopBar />
-      </div>
-      <ChatArea />
-      <ChatArea /> 
-      <ChatInput />
-    </div> */}
     </>
   );
 };
