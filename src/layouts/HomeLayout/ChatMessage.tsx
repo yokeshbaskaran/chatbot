@@ -1,7 +1,7 @@
 import UserMessage from "../../components/UserMessage";
 import AiMessage from "../../components/AiMessage";
 import { useAppContext } from "../../context/AppContext";
-import { UserTyping } from "../../ui/Loader";
+import { UserTyping } from "../../utils/Loader";
 
 const ChatMessage = () => {
   const { chats, activeChatId, loading } = useAppContext();

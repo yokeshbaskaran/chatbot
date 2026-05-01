@@ -1,4 +1,5 @@
 import { FaRegUser } from "react-icons/fa6";
+import { FormatTime } from "../utils/FormatDate";
 
 type UserMessageType = {
   text: string;
@@ -16,7 +17,9 @@ const UserMessage = ({ text, time }: UserMessageType) => {
         <div className="px-2 flex flex-col items-start gap-3">
           <div className="flex items-center gap-4">
             <h2 className="text-primary-hover font-bold text-base">You</h2>
-            <span className="text-text-muted">{time}</span>
+            <span className="text-text-muted capitalize">
+              {FormatTime(time)}
+            </span>
           </div>
           <p className="text-text">{text}</p>
         </div>
