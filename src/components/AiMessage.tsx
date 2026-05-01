@@ -1,8 +1,9 @@
-import { useAppContext } from "../context/AppContext";
+type AIMessageType = {
+  text: string;
+  time: number;
+};
 
-const AiMessage = ({ text }: { text: string }) => {
-  // const { loading } = useAppContext();
-
+const AiMessage = ({ text, time }: AIMessageType) => {
   return (
     <>
       <div className="px-3 py-3 flex items-start gap-2 bg-bg-hover">
@@ -13,7 +14,7 @@ const AiMessage = ({ text }: { text: string }) => {
         <div className="px-2 flex flex-col items-start gap-3">
           <div className="flex items-center gap-4">
             <h2 className="text-text font-bold text-base">AI Model</h2>
-            <span className="text-text-muted">11:00 PM</span>
+            <span className="text-text-muted">{time}</span>
           </div>
           <p className="text-text">{text}</p>
         </div>

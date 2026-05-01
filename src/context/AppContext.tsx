@@ -268,7 +268,7 @@ type AppContextType = {
   handleUserInput: () => void;
   chats: NewChatType[];
   activeChatId: number | null;
-  // loading: boolean;
+  loading: boolean;
 };
 
 type AppContextProviderType = {
@@ -430,7 +430,7 @@ export const AppContextProvider = ({ children }: AppContextProviderType) => {
     // chats
     chats,
     activeChatId,
-    // loading,
+    loading,
   };
 
   return (

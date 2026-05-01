@@ -1,6 +1,11 @@
 import { FaRegUser } from "react-icons/fa6";
 
-const UserMessage = ({ text }: { text: string }) => {
+type UserMessageType = {
+  text: string;
+  time: number;
+};
+
+const UserMessage = ({ text, time }: UserMessageType) => {
   return (
     <>
       <div className="px-3 py-3 flex items-start gap-2 bg-bg">
@@ -11,7 +16,7 @@ const UserMessage = ({ text }: { text: string }) => {
         <div className="px-2 flex flex-col items-start gap-3">
           <div className="flex items-center gap-4">
             <h2 className="text-primary-hover font-bold text-base">You</h2>
-            <span className="text-text-muted">11:00 PM</span>
+            <span className="text-text-muted">{time}</span>
           </div>
           <p className="text-text">{text}</p>
         </div>
