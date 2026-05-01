@@ -48,7 +48,9 @@ const Sidebar = () => {
           <div className="border border-b border-border"></div>
 
           {/* Chat Lists */}
-          <ChatLists />
+          <div className="">
+            <ChatLists />
+          </div>
         </div>
 
         {/* USER profile  */}

@@ -1,5 +1,5 @@
 import { TbDots } from "react-icons/tb";
-import { FaRegUserCircle } from "react-icons/fa";
+import { LuCircleUser } from "react-icons/lu";
 
 const UserProfile = () => {
   return (
@@ -7,7 +7,7 @@ const UserProfile = () => {
       <div className="mt-auto flex items-center gap-2 px-3 py-5 transition-colors  hover:bg-bg-hover cursor-pointer rounded">
         <div className="flex items-center gap-2">
           <div className="mx-1">
-            <FaRegUserCircle size={25} color="#00a6f4" />
+            <LuCircleUser size={25} color="#00a6f4" />
           </div>
 
           <div className="flex flex-col">

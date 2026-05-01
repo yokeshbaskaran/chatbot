@@ -10,7 +10,9 @@ type AppContextType = {
   newChatRef: React.RefObject<HTMLInputElement | null>;
   handleNewChatRef: () => void;
   handleUserInput: (id?: number) => Promise<void>;
+
   chats: NewChatType[];
+  setChats: React.Dispatch<React.SetStateAction<NewChatType[]>>;
   loading: boolean;
   pathToHome: () => void;
 };
@@ -206,6 +208,7 @@ export const AppContextProvider = ({ children }: AppContextProviderType) => {
     handleUserInput,
     // chats
     chats,
+    setChats,
     //spinner
     loading,
     pathToHome,
