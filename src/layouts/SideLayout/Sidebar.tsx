@@ -3,6 +3,7 @@ import { RiCloseLargeLine } from "react-icons/ri";
 // import ChatLists from "./ChatLists";
 import UserProfile from "../../components/UserProfile";
 import { useAppContext } from "../../context/AppContext";
+import ChatLists from "./ChatLists";
 
 const Sidebar = () => {
   const { setOpenSideBar, handleNewChatRef } = useAppContext();
@@ -47,7 +48,7 @@ const Sidebar = () => {
           <div className="border border-b border-border"></div>
 
           {/* Chat Lists */}
-          {/* <ChatLists /> */}
+          <ChatLists />
         </div>
 
         {/* USER profile  */}

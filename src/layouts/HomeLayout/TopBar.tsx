@@ -2,7 +2,7 @@ import { RiMenuUnfold3Line, RiMenuUnfold4Line } from "react-icons/ri";
 
 import { useAppContext } from "../../context/AppContext";
 
-import DarkMode from "../../ui/DarkMode";
+import DarkMode from "../../utils/DarkMode";
 
 const Navbar = () => {
   const { openSideBar, setOpenSideBar } = useAppContext();
