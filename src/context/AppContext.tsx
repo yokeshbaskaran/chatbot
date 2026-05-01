@@ -300,7 +300,7 @@ export const AppContextProvider = ({ children }: AppContextProviderType) => {
   const [userInput, setUserInput] = useState<string>(""); //user input text in chatbox
   // const [aiResponse, setAiResponse] = useState<string>(""); //text from ai response
   const [openSideBar, setOpenSideBar] = useState<boolean>(false); //toggle Sidebar
-  const [loading, setLoading] = useState(false); //spinner
+  const [loading, setLoading] = useState(false); //spinner in ai respone typing(generating)
 
   const [chats, setChats] = useState<NewChatType[]>([]);
   const [activeChatId, setActiveChatId] = useState<number | null>(null);
@@ -401,7 +401,7 @@ export const AppContextProvider = ({ children }: AppContextProviderType) => {
       setTimeout(() => {
         addAIMsg(chatID, "Hello, I am AI!");
         setLoading(false);
-      }, 1000);
+      }, 3000);
     } else {
       addUserMsg(activeChatId, userInput);
       setLoading(true);
@@ -409,7 +409,7 @@ export const AppContextProvider = ({ children }: AppContextProviderType) => {
       setTimeout(() => {
         addAIMsg(activeChatId, "Another respone from am AI!");
         setLoading(false);
-      }, 1000);
+      }, 3000);
     }
 
     setUserInput("");

@@ -3,7 +3,7 @@ import { LuSend } from "react-icons/lu";
 import { useAppContext } from "../../context/AppContext";
 
 const ChatInput = () => {
-  const { userInput, setUserInput, newChatRef, handleUserInput } =
+  const { userInput, setUserInput, newChatRef, handleUserInput, loading } =
     useAppContext();
 
   return (
@@ -28,6 +28,7 @@ const ChatInput = () => {
           </div>
 
           <button
+            disabled={loading}
             onClick={handleUserInput}
             className={`ml-auto p-2 ${userInput ? "text-white bg-primary" : "text-text-muted bg-bg opacity-50"} rounded cursor-pointer`}
           >
