@@ -13,8 +13,9 @@ const Sidebar = () => {
 
   return (
     <>
-      <section className="fixed top-0 left-0 h-screen w-68 bg-bg border flex flex-col border-border">
-        <div className="w-full px-2 py-3">
+      <section className="w-68 h-screen px-2 py-3 bg-bg border flex flex-col border-border overflow-hidden">
+        {/* 1. Top part - logo + New Chat  */}
+        <div className="shrink-0">
           {/* Logo */}
           <div className="flex items-start gap-2">
             <div onClick={pathToHome} className="cursor-pointer">
@@ -58,19 +59,21 @@ const Sidebar = () => {
 
           {/* Divider */}
           <div className="border border-b border-border"></div>
+        </div>
 
-          {/* Chat Lists */}
+        {/* 2. Chat Lists */}
+        <div className="flex-1 overflow-y-auto">
           <ChatLists />
         </div>
 
-        <div className="">
+        {/* 3. User profile  */}
+        <div className="shrink-0">
           <AnimatePresence>
             {openUserProfile && <UserOptions />}
           </AnimatePresence>
-        </div>
 
-        {/* USER profile  */}
-        <UserProfile />
+          <UserProfile />
+        </div>
       </section>
     </>
   );

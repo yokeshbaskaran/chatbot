@@ -1,6 +1,7 @@
 import Sidebar from "./SideLayout/Sidebar";
 import Homepage from "./HomeLayout/Homepage";
 import { useAppContext } from "../context/AppContext";
+import { motion } from "framer-motion";
 
 const MainLayout = () => {
   const { openSideBar, setOpenSideBar } = useAppContext();
@@ -8,15 +9,19 @@ const MainLayout = () => {
   return (
     <div className="flex h-screen">
       <div
-        className={`z-50 ${openSideBar ? "md:w-68 md:flex md:flex-col" : "hidden"}`}
+        className={`fixed md:relative z-100 ${openSideBar ? "md:w-68 md:flex md:flex-col" : "hidden"}`}
       >
         <Sidebar />
       </div>
 
       {openSideBar && (
         <>
-          <div
-            className="fixed inset-0 bg-black/30 md:hidden"
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed z-40 inset-0 bg-black/30 md:hidden"
             onClick={() => setOpenSideBar(false)}
           />
         </>
