@@ -4,9 +4,11 @@ import { RiCloseLargeLine } from "react-icons/ri";
 import UserProfile from "../../components/UserProfile";
 import { useAppContext } from "../../context/AppContext";
 import ChatLists from "./ChatLists";
+import UserOptions from "../../components/UserOptions";
+import { AnimatePresence } from "framer-motion";
 
 const Sidebar = () => {
-  const { setOpenSideBar, handleNewChatRef } = useAppContext();
+  const { setOpenSideBar, handleNewChatRef, openUserProfile } = useAppContext();
 
   return (
     <>
@@ -48,9 +50,13 @@ const Sidebar = () => {
           <div className="border border-b border-border"></div>
 
           {/* Chat Lists */}
-          <div className="">
-            <ChatLists />
-          </div>
+          <ChatLists />
+        </div>
+
+        <div className="">
+          <AnimatePresence>
+            {openUserProfile && <UserOptions />}
+          </AnimatePresence>
         </div>
 
         {/* USER profile  */}

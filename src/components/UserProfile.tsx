@@ -1,10 +1,12 @@
 import { TbDots } from "react-icons/tb";
 import { LuCircleUser } from "react-icons/lu";
+import { useAppContext } from "../context/AppContext";
 
 const UserProfile = () => {
+  const { setOpenUserProfile } = useAppContext();
   return (
     <>
-      <div className="mt-auto flex items-center gap-2 px-3 py-5 transition-colors  hover:bg-bg-hover cursor-pointer rounded">
+      <div className="mt-auto flex items-center gap-2 px-3 py-4 transition-colors border-t-2 border-border hover:bg-bg-soft cursor-pointer rounded">
         <div className="flex items-center gap-2">
           <div className="mx-1">
             <LuCircleUser size={25} color="#00a6f4" />
@@ -16,8 +18,11 @@ const UserProfile = () => {
           </div>
         </div>
 
-        <div className="ml-auto">
-          <TbDots size={18} />
+        <div
+          onClick={() => setOpenUserProfile((prev) => !prev)}
+          className="ml-auto cursor-pointer"
+        >
+          <TbDots size={18} color="#00a6f4" />
         </div>
       </div>
     </>
