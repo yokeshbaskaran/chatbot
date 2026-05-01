@@ -19,7 +19,7 @@ const UserMessage = ({ text, time }: UserMessageType) => {
             <h2 className="text-text-muted font-bold text-base">You</h2>
             <span className="text-text-muted">{FormatTime(time)}</span>
           </div>
-          <p className="text-text">{text}</p>
+          <p className="text-text pr-5">{text}</p>
         </div>
       </div>
     </>

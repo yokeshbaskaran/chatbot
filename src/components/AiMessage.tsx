@@ -22,7 +22,7 @@ const AiMessage = ({ text, time }: AIMessageType) => {
           {/* <p className="text-text whitespace-pre-wrap wrap-break-word">
             {text}
           </p> */}
-          <div className="prose prose-invert max-w-none text-text wrap-break-word">
+          <div className="pr-5 prose prose-invert max-w-none text-text wrap-break-word">
             <ReactMarkdown>{text}</ReactMarkdown>
           </div>
         </div>
