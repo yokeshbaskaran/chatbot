@@ -1,14 +1,12 @@
 import { IoWarningOutline } from "react-icons/io5";
 
-type Props = {
+type DeleteChatProps = {
   onCancel: () => void;
   onConfirm: () => void;
   title: string;
 };
 
-const DeletePopup = ({ onCancel, onConfirm, title }: Props) => {
-  // const givenChat = "how ai works?";
-
+const DeletePopup = ({ onCancel, onConfirm, title }: DeleteChatProps) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/40 z-50">
       <div className="bg-white rounded-xl p-10 w-88 shadow-lg">

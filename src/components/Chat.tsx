@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { FormatTime } from "../utils/FormatDate";
-// import { useAppContext } from "../context/AppContext";
 
 type ChatProps = {
   id: number;
@@ -16,8 +15,6 @@ const Chat = ({ id, title, updatedAt, onDelete, onEdit }: ChatProps) => {
   const [chatText, setChatText] = useState(title);
   const [isEdit, setIsEdit] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-
-  // const { formatTime } = useAppContext();
 
   useEffect(() => {
     if (isEdit) {
@@ -40,12 +37,12 @@ const Chat = ({ id, title, updatedAt, onDelete, onEdit }: ChatProps) => {
 
   return (
     <>
-      <div className="group flex justify-between items-start px-2 py-3 rounded hover:bg-bg-hover cursor-pointer ">
-        <div className="flex flex-col items-start">
+      <div className="group flex justify-between items-start px-2 py-3 rounded-lg bg-bg-soft hover:bg-bg-hover cursor-pointer">
+        <div className="flex flex-col items-start text-text">
           {isEdit ? (
             <input
               type="text"
-              className="w-8/12 px-1 outline:border outline:border-green-600"
+              className="w-8/12 px-1 outline-primary"
               ref={inputRef}
               onBlur={handleBlur}
               onKeyDown={(e) => {

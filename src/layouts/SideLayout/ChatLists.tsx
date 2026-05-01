@@ -5,9 +5,7 @@ import DeletePopup from "../../components/DeleteChat";
 import { useNavigate } from "react-router-dom";
 
 const ChatLists = () => {
-  const { chats } = useAppContext();
-
-  const editChatTitle = () => {};
+  const { chats, setChats, pathToHome } = useAppContext();
 
   const [deleteId, setDeleteId] = useState<number | null>(null);
 
@@ -16,16 +14,35 @@ const ChatLists = () => {
     navigate(`/chat/${id}`);
   };
 
+  const editChatTitle = (id: number, newTitle: string) => {
+    setChats((prev) =>
+      prev.map((chat) => {
+        if (chat.id === id) {
+          return {
+            ...chat,
+            title: newTitle,
+          };
+        }
+
+        return chat;
+      }),
+    );
+  };
+
+  const deleteChat = (id: number) => {
+    setChats((prev) => prev.filter((chat) => chat.id !== id));
+
+    pathToHome();
+  };
+
   return (
-    <div className="flex flex-col gap-2 py-2">
+    <div className="flex flex-col gap-1 py-2">
       {chats.map((chat) => (
         <div
           key={chat.id}
           onClick={() => handleChatNavigate(chat.id)}
-          // onClick={() => setActiveChatID(chat.id)}
-          // className={`my-2 flex-1 overflow-y-auto space-y-2 cursor-pointer ${
-          //   activeChatID === chat.id ? "bg-[#ecedef]" : ""
-          // }`}
+          className={`my-1 flex-1 overflow-y-auto space-y-2 cursor-pointer  
+          }`}
         >
           <Chat
             id={chat.id}
@@ -37,7 +54,7 @@ const ChatLists = () => {
         </div>
       ))}
 
-      {/* {deleteId && (
+      {deleteId && (
         <DeletePopup
           title={chats.find((c) => c.id === deleteId)?.title || ""}
           onCancel={() => setDeleteId(null)}
@@ -46,7 +63,7 @@ const ChatLists = () => {
             setDeleteId(null);
           }}
         />
-      )} */}
+      )}
     </div>
   );
 };
