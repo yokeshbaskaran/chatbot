@@ -15,7 +15,7 @@ const Sidebar = () => {
           {/* Logo */}
           <div className="flex items-start gap-2">
             <span className="cursor-pointer">
-              <img src="./logo.png" alt="app logo" width={28} height={28} />
+              <img src="/logo.png" alt="app logo" width={28} height={28} />
             </span>
 
             <div className="w-full text-text flex justify-between items-center">
@@ -41,7 +41,7 @@ const Sidebar = () => {
             <span className="px-1 py-2">
               <IoMdAdd size={20} />
             </span>
-            <span>New Chat</span>
+            <span className="text-text">New Chat</span>
           </div>
 
           {/* Divider */}

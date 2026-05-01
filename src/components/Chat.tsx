@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBinLine } from "react-icons/ri";
+import { FormatTime } from "../utils/FormatDate";
 // import { useAppContext } from "../context/AppContext";
 
 type ChatProps = {
@@ -39,7 +40,7 @@ const Chat = ({ id, title, updatedAt, onDelete, onEdit }: ChatProps) => {
 
   return (
     <>
-      <div className="group flex justify-between items-start px-2 py-3 rounded hover:bg-gray-300 ">
+      <div className="group flex justify-between items-start px-2 py-3 rounded hover:bg-bg-hover cursor-pointer ">
         <div className="flex flex-col items-start">
           {isEdit ? (
             <input
@@ -59,8 +60,8 @@ const Chat = ({ id, title, updatedAt, onDelete, onEdit }: ChatProps) => {
             </p>
           )}
 
-          <span className="px-0 text-sm text-gray-500">
-            {/* {formatTime(updatedAt)} */}
+          <span className="px-0 text-sm text-text-muted">
+            {FormatTime(updatedAt)}
           </span>
         </div>
 

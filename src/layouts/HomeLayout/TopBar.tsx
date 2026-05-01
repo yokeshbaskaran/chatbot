@@ -3,9 +3,10 @@ import { RiMenuUnfold3Line, RiMenuUnfold4Line } from "react-icons/ri";
 import { useAppContext } from "../../context/AppContext";
 
 import DarkMode from "../../utils/DarkMode";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const { openSideBar, setOpenSideBar } = useAppContext();
+  const { openSideBar, setOpenSideBar, pathToHome } = useAppContext();
 
   //toggling sidebar
   const handleSidebarToggle = () => {
@@ -28,7 +29,10 @@ const Navbar = () => {
         </div>
 
         {/* Logo in topbar  */}
-        <div className="flex gap-2 ml-2 px-2 py-1 cursor-pointer rounded hover:bg-bg-hover transition-colors">
+        <div
+          onClick={pathToHome}
+          className="flex  gap-2 ml-2 px-2 py-1 cursor-pointer rounded hover:bg-bg-hover transition-colors"
+        >
           <h2 className="text-xl text-text font-semibold flex items-center gap-0">
             Chat <span className="text-blue-400 font-bold">AI</span>
           </h2>
