@@ -1,6 +1,7 @@
 import { FormatTime } from "../utils/FormatDate";
 import { VscRobot } from "react-icons/vsc";
 import ReactMarkdown from "react-markdown";
+
 type AIMessageType = {
   text: string;
   time: number;

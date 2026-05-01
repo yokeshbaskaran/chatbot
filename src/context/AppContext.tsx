@@ -1,42 +1,12 @@
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { generateAIResponse, type AIMsgType } from "../utils/AiRespone";
-
-type AppContextType = {
-  userInput: string;
-  setUserInput: React.Dispatch<React.SetStateAction<string>>;
-  openSideBar: boolean;
-  setOpenSideBar: React.Dispatch<React.SetStateAction<boolean>>;
-  newChatRef: React.RefObject<HTMLInputElement | null>;
-  handleNewChatRef: () => void;
-  handleUserInput: (id?: number) => Promise<void>;
-
-  chats: NewChatType[];
-  setChats: React.Dispatch<React.SetStateAction<NewChatType[]>>;
-  loading: boolean;
-  pathToHome: () => void;
-  openUserProfile: boolean;
-  setOpenUserProfile: React.Dispatch<React.SetStateAction<boolean>>;
-};
-
-type AppContextProviderType = {
-  children: React.ReactNode;
-};
-
-type MessageType = {
-  id: number;
-  text: string;
-  sender: "user" | "ai";
-  createdAt: number;
-};
-
-type NewChatType = {
-  id: number;
-  title: string;
-  messages: MessageType[];
-  createdAt: number;
-  updatedAt: number;
-};
+import type {
+  AppContextProviderType,
+  AppContextType,
+  // MessageType,
+  NewChatType,
+} from "../utils/types";
 
 const AppContext = createContext({} as AppContextType);
 
