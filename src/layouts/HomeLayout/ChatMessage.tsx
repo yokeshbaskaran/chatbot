@@ -11,24 +11,26 @@ const ChatMessage = () => {
   // console.log("activeChat", activeChat);
 
   return (
-    <div>
-      {activeChat?.messages.map((message) =>
-        message.sender === "user" ? (
-          <UserMessage
-            key={message.id}
-            text={message.text}
-            time={message.createdAt}
-          />
-        ) : (
-          <AiMessage
-            key={message.id}
-            text={message.text}
-            time={message.createdAt}
-          />
-        ),
-      )}
-      {loading ? <LoadingAIResponse /> : ""}
-    </div>
+    <>
+      <div className=" mb-5">
+        {activeChat?.messages.map((message) =>
+          message.sender === "user" ? (
+            <UserMessage
+              key={message.id}
+              text={message.text}
+              time={message.createdAt}
+            />
+          ) : (
+            <AiMessage
+              key={message.id}
+              text={message.text}
+              time={message.createdAt}
+            />
+          ),
+        )}
+        {loading ? <LoadingAIResponse /> : ""}
+      </div>
+    </>
   );
 };
 
