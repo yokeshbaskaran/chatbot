@@ -22,9 +22,6 @@ const Navbar = () => {
           whileTap={{
             scale: 0.92,
           }}
-          animate={{
-            rotate: openSideBar ? 180 : 0,
-          }}
           transition={{
             duration: 0.3,
           }}

@@ -5,10 +5,11 @@ import UserProfile from "../../components/UserProfile";
 import { useAppContext } from "../../context/AppContext";
 import ChatLists from "./ChatLists";
 import UserOptions from "../../components/UserOptions";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Sidebar = () => {
-  const { setOpenSideBar, handleNewChatRef, openUserProfile } = useAppContext();
+  const { setOpenSideBar, handleNewChatRef, openUserProfile, pathToHome } =
+    useAppContext();
 
   return (
     <>
@@ -16,9 +17,9 @@ const Sidebar = () => {
         <div className="w-full px-2 py-3">
           {/* Logo */}
           <div className="flex items-start gap-2">
-            <span className="cursor-pointer">
+            <div onClick={pathToHome} className="cursor-pointer">
               <img src="/logo.png" alt="app logo" width={28} height={28} />
-            </span>
+            </div>
 
             <div className="w-full text-text flex justify-between items-center">
               <h2 className="text-lg font-semibold">
@@ -36,7 +37,16 @@ const Sidebar = () => {
           </div>
 
           {/* New Chat */}
-          <div
+          <motion.div
+            whileHover={{
+              scale: 1.01,
+            }}
+            whileTap={{
+              scale: 0.92,
+            }}
+            transition={{
+              duration: 0.3,
+            }}
             onClick={handleNewChatRef}
             className="my-4 px-1 py-1 bg-primary text-text hover:opacity-90 rounded flex items-center cursor-pointer"
           >
@@ -44,7 +54,7 @@ const Sidebar = () => {
               <IoMdAdd size={20} />
             </span>
             <span className="text-text">New Chat</span>
-          </div>
+          </motion.div>
 
           {/* Divider */}
           <div className="border border-b border-border"></div>

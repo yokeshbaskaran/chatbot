@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { FormatTime } from "../utils/FormatDate";
+import { motion } from "framer-motion";
 
 type ChatProps = {
   id: number;
@@ -37,7 +38,18 @@ const Chat = ({ id, title, updatedAt, onDelete, onEdit }: ChatProps) => {
 
   return (
     <>
-      <div className="group flex justify-between items-start px-2 py-3 rounded-lg bg-bg-soft hover:bg-bg-hover cursor-pointer">
+      <motion.div
+        whileHover={{
+          scale: 1.01,
+        }}
+        whileTap={{
+          scale: 0.92,
+        }}
+        transition={{
+          duration: 0.2,
+        }}
+        className="group flex justify-between items-start px-2 py-3 rounded-lg bg-bg-soft hover:bg-bg-hover cursor-pointer"
+      >
         <div className="flex flex-col items-start text-text">
           {isEdit ? (
             <input
@@ -63,15 +75,15 @@ const Chat = ({ id, title, updatedAt, onDelete, onEdit }: ChatProps) => {
         </div>
 
         <div className="group-hover:flex hidden items-center gap-3">
-          <button onClick={handleChatEdit} className="cursor-pointer">
+          <button onClick={handleChatEdit} className="cursor-pointer ">
             <FaRegEdit size={20} color="green" />
           </button>
 
           <button onClick={handleChatDelete} className="cursor-pointer">
-            <RiDeleteBinLine size={20} color="red" />
+            <RiDeleteBinLine size={20} color="#ff6467" />
           </button>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

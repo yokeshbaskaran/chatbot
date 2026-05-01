@@ -6,7 +6,7 @@ const UserProfile = () => {
   const { setOpenUserProfile } = useAppContext();
   return (
     <>
-      <div className="mt-auto flex items-center gap-2 px-3 py-4 transition-colors border-t-2 border-border hover:bg-bg-soft cursor-pointer rounded">
+      <div className="mt-auto flex items-center gap-2 px-3 py-4 transition-colors border-t-2 border-border rounded">
         <div className="flex items-center gap-2">
           <div className="mx-1">
             <LuCircleUser size={25} color="#00a6f4" />
@@ -20,7 +20,7 @@ const UserProfile = () => {
 
         <div
           onClick={() => setOpenUserProfile((prev) => !prev)}
-          className="ml-auto cursor-pointer"
+          className="p-2 ml-auto cursor-pointer hover:bg-bg-hover rounded"
         >
           <TbDots size={18} color="#00a6f4" />
         </div>
