@@ -1,13 +1,13 @@
 const ChatArea = () => {
   const instructions = [
-    { title: "Code Help", usage: "Debug and write better code" },
-    { title: "Explanations", usage: "Understand complex topics" },
-    { title: "Creative Writing", usage: "Generate content and ideas" },
+    { title: "Code Help", usage: "Debug and write code" },
+    { title: "Explanations", usage: "Understand the topics" },
+    { title: "Creative Writing", usage: "Generate a content and ideas" },
     { title: "Problem Solving", usage: "Find solutions to challenges" },
   ];
 
   return (
-    <div className="my-10 flex flex-col items-center">
+    <div className="my-18 flex flex-col items-center">
       <div className="px-2">
         <img src="/logo.png" alt="logo" width={120} height={120} />
       </div>
@@ -18,7 +18,7 @@ const ChatArea = () => {
           <span className="text-primary">AI</span>
         </h2>
         <p className="text-text-muted py-1">
-          Ask me anything. I'm here to help.
+          Ask for anything. I'm here to help.
         </p>
       </div>
 
@@ -29,7 +29,7 @@ const ChatArea = () => {
             className="px-8 py-4 border border-border rounded-xl hover:border-primary transition-colors bg-bg-hover shadow-sm cursor-pointer"
           >
             <h2 className="text-text text-base text-center">{help.title}</h2>
-            <p className="text-text-muted text-sm">{help.usage}</p>
+            <p className="text-text-muted text-center text-sm">{help.usage}</p>
           </div>
         ))}
       </section>
