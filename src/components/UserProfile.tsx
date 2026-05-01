@@ -5,7 +5,7 @@ const UserProfile = () => {
     <>
       <div className="mt-auto flex items-center gap-2 px-3 py-5 transition-colors  hover:bg-gray-100 cursor-pointer rounded">
         <div className="flex items-center gap-2">
-          <img src="./icon.png" alt="logo" className="size-8 mx-1" />
+          <img src="/icon.png" alt="logo" className="size-8 mx-1" />
 
           <div className="flex flex-col">
             <h2 className="text-base font-medium"> Username </h2>
