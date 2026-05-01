@@ -1,15 +1,18 @@
 import { TbDots } from "react-icons/tb";
+import { FaRegUserCircle } from "react-icons/fa";
 
 const UserProfile = () => {
   return (
     <>
-      <div className="mt-auto flex items-center gap-2 px-3 py-5 transition-colors  hover:bg-gray-100 cursor-pointer rounded">
+      <div className="mt-auto flex items-center gap-2 px-3 py-5 transition-colors  hover:bg-bg-hover cursor-pointer rounded">
         <div className="flex items-center gap-2">
-          <img src="/icon.png" alt="logo" className="size-8 mx-1" />
+          <div className="mx-1">
+            <FaRegUserCircle size={25} color="#00a6f4" />
+          </div>
 
           <div className="flex flex-col">
-            <h2 className="text-base font-medium"> Username </h2>
-            <span className="text-[#747474] text-sm">useremail.com </span>
+            <h2 className="text-base text-text font-medium"> Username </h2>
+            <span className="text-text-muted text-sm">useremail.com </span>
           </div>
         </div>
 
