@@ -15,6 +15,8 @@ type AppContextType = {
   setChats: React.Dispatch<React.SetStateAction<NewChatType[]>>;
   loading: boolean;
   pathToHome: () => void;
+  openUserProfile: boolean;
+  setOpenUserProfile: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 type AppContextProviderType = {
@@ -47,6 +49,8 @@ export const AppContextProvider = ({ children }: AppContextProviderType) => {
 
   const [openSideBar, setOpenSideBar] = useState<boolean>(false); //toggle Sidebar
   const [loading, setLoading] = useState(false); //spinner in ai respone typing(generating)
+
+  const [openUserProfile, setOpenUserProfile] = useState(false);
 
   // store all chats conservation and fetch from localstorage also.
   const [chats, setChats] = useState<NewChatType[]>(() => {
@@ -212,6 +216,9 @@ export const AppContextProvider = ({ children }: AppContextProviderType) => {
     //spinner
     loading,
     pathToHome,
+    //user profile
+    openUserProfile,
+    setOpenUserProfile,
   };
 
   return (
