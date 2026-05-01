@@ -62,15 +62,3 @@
     left: 100%;
   }
 }
-
-.yoki {
-  @apply border border-red-500;
-}
-
-.yokii {
-  @apply border text-violet-500;
-}
-
-.yokiii {
-  @apply border border-green-500;
-}
