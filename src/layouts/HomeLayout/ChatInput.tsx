@@ -1,10 +1,14 @@
 import { MdOutlineAttachFile } from "react-icons/md";
 import { LuSend } from "react-icons/lu";
 import { useAppContext } from "../../context/AppContext";
+import { useParams } from "react-router-dom";
 
 const ChatInput = () => {
   const { userInput, setUserInput, newChatRef, handleUserInput, loading } =
     useAppContext();
+
+  const { chatId } = useParams();
+  // console.log("chatID from useParams:", chatId);
 
   return (
     <div className="px-5 flex flex-col items-center">
@@ -29,7 +33,7 @@ const ChatInput = () => {
 
           <button
             disabled={loading}
-            onClick={handleUserInput}
+            onClick={() => handleUserInput(Number(chatId))}
             className={`ml-auto p-2 ${userInput ? "text-white bg-primary" : "text-text-muted bg-bg opacity-50"} rounded cursor-pointer`}
           >
             <LuSend size={18} />

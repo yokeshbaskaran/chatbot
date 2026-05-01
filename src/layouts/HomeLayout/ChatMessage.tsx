@@ -2,17 +2,19 @@ import UserMessage from "../../components/UserMessage";
 import AiMessage from "../../components/AiMessage";
 import { useAppContext } from "../../context/AppContext";
 import { UserTyping } from "../../utils/Loader";
+import { useParams } from "react-router-dom";
 
 const ChatMessage = () => {
-  const { chats, activeChatId, loading } = useAppContext();
+  const { chats, loading } = useAppContext();
 
-  const activeChat = chats.find((chat) => chat.id === activeChatId);
+  const { chatId } = useParams();
+  // console.log("chatid from usePARAMS:", chatID);
 
-  // console.log("activeChat", activeChat);
+  const activeChat = chats.find((chat) => chat.id === Number(chatId));
 
   return (
     <>
-      <div className=" mb-5">
+      <div className="mb-5">
         {activeChat?.messages.map((message) =>
           message.sender === "user" ? (
             <UserMessage
@@ -41,7 +43,7 @@ export const LoadingAIResponse = () => {
     <div>
       <div className="px-3 py-3 flex items-start gap-2 bg-bg-hover">
         <div className="p-2 bg-bg rounded">
-          <img src="./logo.png" alt="app-logo" width={17} />
+          <img src="/logo.png" alt="app-logo" width={17} />
         </div>
 
         <div className="px-2 flex flex-col items-start gap-3">
