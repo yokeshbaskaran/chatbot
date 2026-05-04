@@ -138,6 +138,7 @@ export const AppContextProvider = ({ children }: AppContextProviderType) => {
         addAIMsg(chatID, response);
         navigate(`/chat/${chatID}`);
       }
+
       //Exisiting chat
       else {
         //add latest user msgs
@@ -161,8 +162,19 @@ export const AppContextProvider = ({ children }: AppContextProviderType) => {
 
         addAIMsg(chatsID, response);
       }
-    } catch (error) {
-      console.log("Error in handleUserInput", error);
+    } catch (error: unknown) {
+      console.log("Error in Groq API", error);
+
+      //if error occurs, it displays errorMessage
+      let errorMessage;
+      if (error instanceof Error) {
+        errorMessage = "Something went wrong! Please try again later!";
+      }
+
+      //shows error inside chat
+      if (chatsID) {
+        addAIMsg(chatsID, `${errorMessage}`);
+      }
     } finally {
       setLoading(false);
     }

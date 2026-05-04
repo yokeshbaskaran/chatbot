@@ -18,7 +18,6 @@ export const generateAIResponse = async (
   try {
     const completion = await groq.chat.completions.create({
       model: "llama-3.3-70b-versatile",
-
       messages,
     });
 
@@ -26,9 +25,26 @@ export const generateAIResponse = async (
     const result =
       completion.choices[0]?.message?.content || "No response generated.";
     return result;
-  } catch (error) {
-    console.log("Groq failed:", error);
-  }
+  } catch (error: unknown) {
+    console.error("Groq API Error:", error);
 
-  throw new Error("All AI providers failed.");
+    const err = error as {
+      status: number;
+      message: string;
+    };
+
+    if (err.status === 429) {
+      throw new Error("Rate limit exceeded. Please try again later", {
+        cause: error,
+      });
+    }
+
+    if (err.status === 401) {
+      throw new Error("Invalid API key!", { cause: error });
+    }
+
+    throw new Error("Something went wrong while generating AI response!", {
+      cause: error,
+    });
+  }
 };
