@@ -101,27 +101,19 @@ npm run dev -- --host # For Mobile view:
 
 # 🌐 Live Demo
 
-🔗 Live Website:  
-https://chatai-assistant.vercel.app
+🔗 Live Website: https://chatai-assistant.vercel.app
 
 # 🖼️ Preview
 
-Add your screenshots here.
-
 ![Image](https://github.com/user-attachments/assets/53f2e997-cadc-44b7-9cd2-8cf56f5a83da)
 
----
-
-<img width="1355" height="720" alt="Image" src="https://github.com/user-attachments/assets/59f65cd7-5ec0-430b-9550-1724fe99b7ff" />
-
-
-# 📌 Future Improvements
+<!-- # 📌 Future Improvements
 
 - 🖼️ AI image generation support
 - 🎤 Voice input & AI speech responses
 - 📝 Markdown & code syntax highlighting
 - 👥 Team/workspace collaboration
-- ⚡ Streaming quick AI responses
+- ⚡ Streaming quick AI responses -->
 
 # 👨‍💻 Author
 
