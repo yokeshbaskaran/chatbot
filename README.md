@@ -2,8 +2,6 @@
 
 A modern full-stack AI chatbot application where users can chat with clean UI/UX and responsive interface. Built with React + TypeScript, powered by modern APIs, and deployed with scalable cloud infrastructure.
 
----
-
 # 🚀 Features
 
 - 💬 Real-time AI chat experience
@@ -18,8 +16,6 @@ A modern full-stack AI chatbot application where users can chat with clean UI/UX
   <!-- - 🔔 Toast notifications & proper error handling -->
   <!-- - ⚡ Fast and optimized UI using React Query -->
   <!-- - 📎 File upload support -->
-
----
 
 # 🎨 Project Description
 
@@ -40,8 +36,6 @@ This project demonstrates:
 - Production-ready deployment practices
 - Scalable UI/UX design principles
 <!-- - Secure backend communication -->
-
----
 
 # 🛠️ Tech Stack
 
@@ -68,7 +62,7 @@ This project demonstrates:
 - CI/CD: GitHub Actions
 - Environment Variables for secure configuration -->
 
-<!-- ---
+<!--
 
 # 🚀 Deployment Flow
 
@@ -78,14 +72,12 @@ This project demonstrates:
 4. Application deployed to Vercel
 5. Live application served securely over HTTPS -->
 
----
-
 # 📦 Installation & Setup
 
 ## Clone the repository
 
 ```bash
-git clone https://github.com/your-username/chatai.git
+git clone https://github.com/yokeshbaskaran/chatai.git
 cd chatai
 ```
 
@@ -101,31 +93,28 @@ npm run dev
 ```bash
 npm install tailwindcss @tailwindcss/vite
 npm i framer-motion
-npm install uuid
 npm install react-icons --save
 npm install react-router-dom
 npm install framer-motion
 npm run dev -- --host # For Mobile view:
 ```
 
----
-
 # 🌐 Live Demo
 
 🔗 Live Website:  
 https://chatai-assistant.vercel.app
-
----
 
 # 🖼️ Preview
 
 Add your screenshots here.
 
 ```md
-![Preview](./preview.png)
-```
+![Image](https://github.com/user-attachments/assets/53f2e997-cadc-44b7-9cd2-8cf56f5a83da)
 
 ---
+
+<img width="1355" height="720" alt="Image" src="https://github.com/user-attachments/assets/59f65cd7-5ec0-430b-9550-1724fe99b7ff" />
+```
 
 # 📌 Future Improvements
 
@@ -133,9 +122,7 @@ Add your screenshots here.
 - 🎤 Voice input & AI speech responses
 - 📝 Markdown & code syntax highlighting
 - 👥 Team/workspace collaboration
-- ⚡ Streaming AI responses
-
----
+- ⚡ Streaming quick AI responses
 
 # 👨‍💻 Author
 
