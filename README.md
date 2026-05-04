@@ -108,13 +108,12 @@ https://chatai-assistant.vercel.app
 
 Add your screenshots here.
 
-```md
 ![Image](https://github.com/user-attachments/assets/53f2e997-cadc-44b7-9cd2-8cf56f5a83da)
 
 ---
 
 <img width="1355" height="720" alt="Image" src="https://github.com/user-attachments/assets/59f65cd7-5ec0-430b-9550-1724fe99b7ff" />
-```
+
 
 # 📌 Future Improvements
 
